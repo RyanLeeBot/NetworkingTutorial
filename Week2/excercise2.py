@@ -1,9 +1,6 @@
 '''
-<<<<<<< HEAD
-=======
 Create a list of five IP addresses.
 
->>>>>>> 76a1fe210e1db6c19b8d636cf4d3808da14cc8aa
 Use the .append() method to add an IP address onto the end of the list. Use the .extend() method to add two more IP addresses to the end of the list.
 
 Use list concatenation to add two more IP addresses to the end of the list.
@@ -15,8 +12,6 @@ Using the .pop() method to remove the first IP address in the list and the last 
 Update the new first IP address in the list to be '2.2.2.2'. Print out the new first IP address in the list.
 '''
 
-<<<<<<< HEAD
-=======
 ip_addresses = ['10.5.10.6', '10.30.0.2', '10.20.4.89', '10.67.20.1', '10.2.54.1']
 
 ip_addresses.append('192.168.1.10')
@@ -38,4 +33,3 @@ ip_addresses.pop(-1)
 ip_addresses[0] = '255.255.255.0'
 
 print(ip_addresses[0])
->>>>>>> 76a1fe210e1db6c19b8d636cf4d3808da14cc8aa
