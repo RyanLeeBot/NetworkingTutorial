@@ -16,3 +16,36 @@ From this, create a list of IPv6 addresses that includes only the above two addr
 
 Print this list to the screen.
 '''
+
+
+import re 
+
+with open('show_ipv6_intf.txt') as f:
+    show_ipv6 = f.read()
+
+# Use re.DOTALL to have .* span newlines
+match = re.search(r"IPv6 address:\s+(.*)\s+IPv6 subnet:", show_ipv6, flags=re.DOTALL)
+
+
+
+#MY VERSION
+ip_list = match.group(1).split()
+ip_list.pop(1)
+
+print(ip_list)
+
+
+'''
+#Kirks fancy version
+
+for i, address in enumerate(ip_list[:]):
+    address = re.sub(r"\[VALID\]", "", address)
+    ip_list[i] = address.strip()
+
+print()
+print('-' * 80)
+print(ip_list)
+print('-' * 80)
+print()
+
+'''
