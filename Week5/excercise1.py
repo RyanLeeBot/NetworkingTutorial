@@ -18,3 +18,38 @@ Call the 'ssh_conn2' function both with and without specifying the device_type
 Create a dictionary that maps to the function's parameters. Call this ssh_conn2 function using the **kwargs technique.
 '''
 
+def ssh_conn(ip_addr, username='admin', password='woot', device_type='cisco_ios'):
+
+    print()
+    print(30 * '-')
+    print('IP Address: {}'.format(ip_addr))
+    print('Username: {}'.format(username))
+    print('Password: {}'.format(password))
+    print('Device Type: {}'.format(device_type))
+    print(30 * '-')
+    print()
+
+ssh_conn('10.1.1.10', device_type='mydevce')
+
+
+
+def ssh_conn2(ip_addr, username, password, device_type="cisco_ios"):
+    print("-" * 80)
+    print("IP Addr: {}".format(ip_addr))
+    print("Username: {}".format(username))
+    print("Password: {}".format(password))
+    print("Platform: {}".format(device_type))
+    print("-" * 80)
+
+
+# Adding a default value
+ssh_conn2('192.168.1.1', password='cisco123', username='admin1')
+ssh_conn2('192.168.1.1', password='cisco123', username='admin1', device_type="cisco_nxos")
+
+my_device = {
+    "ip_addr": "172.16.1.1",
+    "device_type": "cisco_xr",
+    "username": "admin",
+    "password": "cisco123"
+}
+ssh_conn2(**my_device)
