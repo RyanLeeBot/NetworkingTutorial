@@ -32,7 +32,8 @@ device = {
 net_connect = Netmiko(**device)
 
 # Use send_config_set() to make config change
-config = ['vlan 200', 'int vlan 200', 'ip add 192.168.200.1 255.255.255.0']
+#config = ['vlan 200', 'int vlan 200', 'ip add 192.168.200.1 255.255.255.0']
+config = ['logging console', 'logging buffer 15000']
 output = net_connect.send_config_set(config)
 output_printer(output)
 
@@ -43,7 +44,7 @@ output_printer(output)
 
 message = "Verifying config change\n"
 output = net_connect.send_command("show run | inc Vlan")
-if '200' in output:
+if '15000' in output:
     message += "Vlan created!"
 else:
     message += "We failed"
