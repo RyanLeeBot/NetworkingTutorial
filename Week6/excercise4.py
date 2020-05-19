@@ -23,7 +23,7 @@ except NameError:
 '''
 password = getpass()
 device = {
-    'host': '192.168.255.2',
+    'host': '10.1.1.2',
     'username': 'root',
     'password': password,
     'device_type': 'cisco_ios',
@@ -32,8 +32,8 @@ device = {
 net_connect = Netmiko(**device)
 
 # Use send_config_set() to make config change
-#config = ['vlan 200', 'int vlan 200', 'ip add 192.168.200.1 255.255.255.0']
-config = ['logging console', 'logging buffer 15000']
+config = ['vlan 200', 'int vlan 200', 'ip add 192.168.200.1 255.255.255.0']
+#config = ['logging console', 'logging buffer 15000']
 output = net_connect.send_config_set(config)
 output_printer(output)
 

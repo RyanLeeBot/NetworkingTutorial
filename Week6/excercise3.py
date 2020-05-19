@@ -28,7 +28,7 @@ net_connect = Netmiko(**device)
 output = net_connect.send_command_timing(command, strip_prompt=False, strip_command=False)
 if 'confirm' in output:
     # I don't confirm the file delete.
-    output += net_connect.send_command_timing('n', strip_prompt=False, strip_command=False)
+    output += net_connect.send_command_timing('y', strip_prompt=False, strip_command=False)
 else:
     raise ValueError("Expected confirm message in output: {}".format(output))
 
